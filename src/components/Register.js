@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { getDatabase, ref, set } from "firebase/database";
+import { doc, setDoc } from "firebase/firestore";
+import db from "../utils/firebase";
 
-function writeUserData(userId, name, email, phone) {
-    const db = getDatabase();
-    set(ref(db, "users/" + userId), {
+async function writeUserData(userId, name, email, phone) {
+    await setDoc(doc(db, "users", userId), {
         username: name,
         email: email,
         phone: phone,
+        isOnline: true,
     });
 }
 

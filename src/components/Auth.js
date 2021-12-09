@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-
+import { setOnlineStatus } from "../utils/commonFunction";
 export const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -13,9 +13,8 @@ export const AuthProvider = ({ children }) => {
             if (user) {
                 const uid = user.uid;
                 setCurrentUser(user);
+                setOnlineStatus(uid, true);
                 setPending(false);
-                console.log(uid);
-                // ...
             } else {
                 setCurrentUser(null);
                 setPending(false);

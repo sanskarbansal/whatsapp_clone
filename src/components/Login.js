@@ -19,11 +19,7 @@ export default function Register() {
         e.preventDefault();
         try {
             const auth = getAuth();
-            const userDetails = await signInWithEmailAndPassword(
-                auth,
-                user.email,
-                user.password
-            );
+            await signInWithEmailAndPassword(auth, user.email, user.password);
             navigate("/dashboard");
         } catch (error) {
             alert(error.message);

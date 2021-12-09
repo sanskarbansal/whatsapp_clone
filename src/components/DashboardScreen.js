@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { getAuth, signOut } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { setOnlineStatus } from "../utils/commonFunction";
+import ContactsList from "./ContactsList";
 
 export default function DashboardScreen() {
-    const navigate = useNavigate();
     const signoutHandler = () => {
         const auth = getAuth();
+        const currentUser = auth.currentUser;
+        const uid = currentUser.uid;
         signOut(auth)
             .then(() => {
-                // navigate("/", { replace: true });
+                setOnlineStatus(uid, false);
             })
             .catch((error) => {
                 alert("Error while signout");
@@ -16,13 +18,11 @@ export default function DashboardScreen() {
     };
     return (
         <section id="chat_body">
-            <button onClick={signoutHandler}>Logout</button>
-            <div>
-                <input type="tel" required />
-                <button>Add Friend</button>
+            {/* <button onClick={signoutHandler}>Logout</button> */}
+            <div id="contacts--list__container">
+                <ContactsList />
             </div>
-
-            <div style={{ width: "95vw", height: "500px" }}></div>
+            <div id="chat__body"></div>
         </section>
     );
 }
