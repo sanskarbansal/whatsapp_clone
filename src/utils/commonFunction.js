@@ -1,5 +1,14 @@
 // import { getDatabase, set, ref, child } from "@firebase/database";
-import { doc, updateDoc } from "firebase/firestore";
+import {
+    doc,
+    query,
+    where,
+    collection,
+    writeBatch,
+    updateDoc,
+    getDocs,
+    onSnapshot,
+} from "@firebase/firestore";
 import db from "../utils/firebase";
 
 export const setOnlineStatus = async (uid, online = true) => {

@@ -4,7 +4,6 @@ import { AuthContext } from "./Auth";
 
 const PrivateRoute = ({ children, ...rest }) => {
     const { currentUser } = useContext(AuthContext);
-    console.log(currentUser);
     let location = useLocation();
     if (!currentUser) {
         return <Navigate to="/" state={{ from: location }} />;

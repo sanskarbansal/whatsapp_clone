@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function Contact({ uid, name, status }) {
     const location = useLocation();
-    console.log(location);
     return (
         <Link to={`/dashboard/${uid}`}>
             <div className="contact">

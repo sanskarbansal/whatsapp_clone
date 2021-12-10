@@ -15,15 +15,14 @@ export default function ContactsList() {
             });
             setUsers([...users, ..._users]);
         });
-    }, []);
+    }, [db]);
     let lists = [];
     for (let _user of users) {
         const { isOnline, username, uid: _uid } = _user;
-        console.log(uid, _uid);
         if (uid !== _uid)
             lists.push(
                 <Contact
-                    key={uid}
+                    key={_uid}
                     uid={_uid}
                     name={username}
                     status={isOnline}

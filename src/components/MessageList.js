@@ -23,8 +23,8 @@ export default function MessageList({
     return (
         <div className="chat_box" ref={chatBoxRef}>
             <div className="body">
-                {messages.map((_user) => (
-                    <Message {..._user} uid={currentUser.uid} />
+                {messages.map((msg) => (
+                    <Message key={msg.id} {...msg} uid={currentUser.uid} />
                 ))}
             </div>
         </div>
