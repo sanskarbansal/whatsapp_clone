@@ -1,10 +1,15 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Contact({ uid, name, status }) {
-    const location = useLocation();
     return (
-        <Link to={`/dashboard/${uid}`}>
+        <Link
+            to={`/dashboard/${uid}`}
+            state={{ status }}
+            style={{
+                textDecoration: "none",
+            }}
+        >
             <div className="contact">
                 <img
                     className="contact__profile"
@@ -15,11 +20,11 @@ export default function Contact({ uid, name, status }) {
                     <div className="contact--body__name">
                         <h1>
                             {name}
-                            <span
+                            {/* <span
                                 className={`active__status ${
                                     status === true ? "green" : "red"
                                 }`}
-                            ></span>
+                            ></span> */}
                         </h1>
                     </div>
                 </div>

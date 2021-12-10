@@ -51,8 +51,12 @@ export default function DashboardScreen() {
     }, [db]);
     return (
         <section id="chat_body">
-            <button onClick={signoutHandler}>Logout</button>
+            {/* <button onClick={signoutHandler}>Logout</button> */}
             <div id="contacts--list__container">
+                {/* <div className="searchbar--container">
+                    <div className="search--icon"></div>
+                    <input type="text" className="searchbar" />
+                </div> */}
                 <ContactsList />
             </div>
             <div id="chat__body">

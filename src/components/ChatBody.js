@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router";
+import { useParams, useLocation } from "react-router";
 import {
     collection,
     addDoc,
@@ -78,6 +78,12 @@ export default function ChatBody() {
                 />
             </div>
             <div className="foot">
+                <div className="icon">
+                    <i className="far fa-smile"></i>
+                </div>
+                <div className="icon">
+                    <i className="fas fa-paperclip"></i>
+                </div>
                 <form onSubmit={sendMessage}>
                     <input
                         value={message}
