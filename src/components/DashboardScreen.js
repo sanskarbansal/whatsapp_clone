@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { getAuth, signOut } from "firebase/auth";
 import { setOnlineStatus } from "../utils/commonFunction";
 import ContactsList from "./ContactsList";
@@ -48,15 +48,25 @@ export default function DashboardScreen() {
         );
         window.addEventListener("beforeunload", unsubscribe);
         return unsubscribe;
-    }, [db]);
+    }, []);
     return (
         <section id="chat_body">
-            {/* <button onClick={signoutHandler}>Logout</button> */}
             <div id="contacts--list__container">
-                {/* <div className="searchbar--container">
-                    <div className="search--icon"></div>
-                    <input type="text" className="searchbar" />
-                </div> */}
+                <div
+                    className="signout__btn"
+                    style={{
+                        color: "white",
+                        display: "flex",
+                        justifyContent: "center",
+                        padding: "10px 0px",
+                        borderBottom: "1px solid white",
+                        fontSize: "30px",
+                        cursor: "pointer",
+                    }}
+                    onClick={signoutHandler}
+                >
+                    <i class="fas fa-sign-out-alt"></i>
+                </div>
                 <ContactsList />
             </div>
             <div id="chat__body">

@@ -54,6 +54,10 @@ button {
     justify-content: space-between;
     display: flex;
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    transition: all 0.2s ease-in;
+}
+.contact:hover {
+    background-color: black;
 }
 .contact .contact__profile {
     /* flex: 2; */
@@ -84,6 +88,12 @@ button {
     justify-content: space-between;
     flex: 1;
     border: 2px solid black;
+}
+.signout__btn {
+    transition: all 0.5s ease-in;
+}
+.signout__btn:hover {
+    background-color: rgb(122, 118, 118);
 }
 .active__status {
     margin-left: 20px;

@@ -13,7 +13,7 @@ export default function Message({ to, from, content, id, uid, status }) {
                 });
             }
         })();
-    }, [id]);
+    }, [iAmOwner, status, id]);
     const ticks = [];
     for (let i = 1; i <= status; i++) {
         ticks.push(<i key={i} className="fa fa-check" aria-hidden="true"></i>);

@@ -18,14 +18,7 @@ export default function Contact({ uid, name, status }) {
                 />
                 <div className="contact--body">
                     <div className="contact--body__name">
-                        <h1>
-                            {name}
-                            {/* <span
-                                className={`active__status ${
-                                    status === true ? "green" : "red"
-                                }`}
-                            ></span> */}
-                        </h1>
+                        <h1>{name}</h1>
                     </div>
                 </div>
             </div>
