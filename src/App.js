@@ -11,8 +11,7 @@ function App() {
             <Router>
                 <Routes>
                     <Route
-                        exact
-                        path="/dashboard"
+                        path="/dashboard/*"
                         element={
                             <PrivateRoute>
                                 <DashboardScreen />
