@@ -3,6 +3,8 @@ import { getAuth, signOut } from "firebase/auth";
 import { setOnlineStatus } from "../utils/commonFunction";
 import ContactsList from "./ContactsList";
 import { Route, Routes } from "react-router";
+import socketIOClient from "socket.io-client";
+
 import ChatBody from "./ChatBody";
 import {
     collection,
@@ -48,6 +50,12 @@ export default function DashboardScreen() {
         );
         window.addEventListener("beforeunload", unsubscribe);
         return unsubscribe;
+    }, []);
+    useEffect(() => {
+        const url = window.location.host;
+        const uid = getAuth().currentUser.uid;
+        const socket = socketIOClient(url);
+        socket.emit("joined", uid);
     }, []);
     return (
         <section id="chat_body">
