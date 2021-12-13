@@ -15,8 +15,28 @@ export default function Message({ to, from, content, id, uid, status }) {
         })();
     }, [iAmOwner, status, id]);
     const ticks = [];
-    for (let i = 1; i <= status; i++) {
-        ticks.push(<i key={i} className="fa fa-check" aria-hidden="true"></i>);
+    if (status === 1) {
+        ticks.push(<i key={0} className="fa fa-check" aria-hidden="true"></i>);
+    } else if (status === 2 || status === 3) {
+        ticks.push(
+            <i
+                key={1}
+                className={`fa fa-check ${status === 3 ? "blue-tick" : ""}`}
+                aria-hidden="true"
+            ></i>
+        );
+        ticks.push(
+            <i
+                style={{
+                    position: "relative",
+                    top: "6px",
+                    left: "-15px",
+                }}
+                key={1}
+                className={`fa fa-check ${status === 3 ? "blue-tick" : ""}`}
+                aria-hidden="true"
+            ></i>
+        );
     }
     return (
         <div className={`${!iAmOwner ? "incoming" : "outgoing"}`}>
