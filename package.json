@@ -1,25 +1,26 @@
 {
-  "dependencies": {
-    "express": "^4.17.1",
-    "firebase-admin": "^10.0.0",
-    "socket.io": "^4.4.0"
-  },
-  "scripts": {
-    "start": "node server.js"
-  },
-  "name": "whatsapp_clone",
-  "version": "1.0.0",
-  "main": "server.js",
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sanskarbansal/whatsapp_clone.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/sanskarbansal/whatsapp_clone/issues"
-  },
-  "homepage": "https://github.com/sanskarbansal/whatsapp_clone#readme",
-  "description": ""
+    "dependencies": {
+        "express": "^4.17.1",
+        "firebase-admin": "^10.0.0",
+        "socket.io": "^4.4.0"
+    },
+    "scripts": {
+        "start": "node server.js",
+        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build"
+    },
+    "name": "whatsapp_clone",
+    "version": "1.0.0",
+    "main": "server.js",
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sanskarbansal/whatsapp_clone.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/sanskarbansal/whatsapp_clone/issues"
+    },
+    "homepage": "https://github.com/sanskarbansal/whatsapp_clone#readme",
+    "description": ""
 }
